@@ -42,8 +42,6 @@ export default function Home() {
     fetchWeather();
   }, []);
 
-  console.log(currentWeather);
-
   if (!currentWeather) {
     return null;
   }
