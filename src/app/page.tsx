@@ -28,15 +28,8 @@ export default function Home() {
 
   useEffect(() => {
     async function fetchWeather() {
-      const url =
-        "https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=59.9139&lon=10.7522";
-
       try {
-        const response = await fetch(url, {
-          headers: {
-            "User-Agent": "IMD",
-          },
-        });
+        const response = await fetch("/api/weather");
 
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
