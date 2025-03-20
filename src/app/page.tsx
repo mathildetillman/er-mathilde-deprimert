@@ -14,6 +14,18 @@ const sunnyConditions = [
 export default function Home() {
   const [currentWeather, setcurrentWeather] = useState<null | string>(null);
 
+  const isDepressed = () => {
+    if (!currentWeather) {
+      return false;
+    }
+    const isSunny = sunnyConditions.includes(currentWeather);
+
+    const currentMonth = new Date().getMonth();
+    const isWinter = currentMonth >= 9 || currentMonth <= 3; // winter is from october to april
+
+    return isWinter && !isSunny;
+  };
+
   useEffect(() => {
     async function fetchWeather() {
       const url =
@@ -51,10 +63,6 @@ export default function Home() {
     );
   }
 
-  console.log(currentWeather);
-
-  const isSunny = sunnyConditions.includes(currentWeather);
-
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-background">
       <div>
@@ -67,7 +75,7 @@ export default function Home() {
         />
       </div>
       <div className="px-18 py-12 text-8xl font-medium bg-background color-[#171717]">
-        {isSunny ? "Nei :)" : "Ja :("}
+        {isDepressed() ? "Ja :(" : "Nei :)"}
       </div>
     </div>
   );
