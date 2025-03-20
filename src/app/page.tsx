@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const sunnyConditions = [
   "clearsky_day",
@@ -43,14 +44,29 @@ export default function Home() {
   }, []);
 
   if (!currentWeather) {
-    return null;
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen bg-background">
+        <div className="px-18 py-12 text-8xl font-medium bg-background">?</div>
+      </div>
+    );
   }
+
+  console.log(currentWeather);
 
   const isSunny = sunnyConditions.includes(currentWeather);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-background">
-      <div className="px-18 py-12 text-8xl font-medium bg-background">
+      <div>
+        <Image
+          height={100}
+          width={100}
+          src={`weatherIcons/${currentWeather}.svg`}
+          alt={currentWeather}
+          className="relative md:absolute top-4 right-4"
+        />
+      </div>
+      <div className="px-18 py-12 text-8xl font-medium bg-background color-[#171717]">
         {isSunny ? "Nei :)" : "Ja :("}
       </div>
     </div>
