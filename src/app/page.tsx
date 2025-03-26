@@ -9,6 +9,9 @@ const sunnyConditions = [
   "fair_day",
   "fair_night",
   "fair_polartwilight",
+  "partlycloudy_day",
+  "partlycloudy_night",
+  "partlycloudy_polartwilight",
 ];
 
 export default function Home() {
