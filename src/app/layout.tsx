@@ -13,11 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "er mathilde deprimert?",
-  description: "spørs om det er sol da",
+  title: "Er Mathilde deprimert?",
+  description: "Spørs om det er sol da",
   openGraph: {
-    title: "er mathilde deprimert?",
-    description: "spørs om det er sol da",
+    title: "Er Mathilde deprimert?",
+    description: "Spørs om det er sol da",
   },
 };
 
